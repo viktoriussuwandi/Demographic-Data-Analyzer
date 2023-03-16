@@ -19,6 +19,7 @@ def calculate_demographic_data(print_data=False):
     # What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?
     # What percentage of people without advanced education make more than 50K?
     # with and without `Bachelors`, `Masters`, or `Doctorate`
+    
     educate         = df[ df['education'].isin( ['Bachelors', 'Masters', 'Doctorate'] )]
     notEducate      = df[~df['education'].isin( ['Bachelors', 'Masters', 'Doctorate'] )]
     rich            = df[ df['salary'] == '>50K' ]
@@ -26,22 +27,26 @@ def calculate_demographic_data(print_data=False):
     educateRich     = pd.merge(educate,rich);    educateNotRich    = pd.merge(educate,notRich)
     notEducateRich  = pd.merge(notEducate,rich); notEducateNotRich = pd.merge(notEducate,notRich)
   
-    higher_education = educate.size
-    lower_education  = notEducate.size
+    higher_education = educate.count
+    lower_education  = notEducate.count
 
     # percentage with salary >50K
     higher_education_rich = round(100*(educateRich.size / educate.size),1)
     lower_education_rich  = round(100*(notEducateRich.size / notEducate.size),1)
 
     # What is the minimum number of hours a person works per week (hours-per-week feature)?
-    min_work_hours = None
+    min_work_hours = df[ ['hours-per-week'] ].min().shape[0]
 
     # What percentage of the people who work the minimum number of hours per week have a salary of >50K?
-    num_min_workers = None
-
-    rich_percentage = None
+    worker_min_h      = df[ df['hours-per-week'] == min_work_hours ]
+    # num_min_workers   = worker_min_h.count
+    rich_worker_min_h = pd.merge(rich,worker_min_h)
+    rich_percentage = round( ( 100*rich_worker_min_h.size ) / worker_min_h.size, 1 )
 
     # What country has the highest percentage of people that earn >50K?
+    citizen = df.groupby('native-country').filter(lambda x : x['salary'] == '>50K').any()
+    print(citizen)
+
     highest_earning_country = None
     highest_earning_country_percentage = None
 
@@ -51,7 +56,7 @@ def calculate_demographic_data(print_data=False):
     # DO NOT MODIFY BELOW THIS LINE
 
     if print_data:
-        print("Number of each race:\n", race_count) 
+        print("Number of each race:\n", race_count)
         print("Average age of men:", average_age_men)
         print(f"Percentage with Bachelors degrees: {percentage_bachelors}%")
         print(f"Percentage with higher education that earn >50K: {higher_education_rich}%")
