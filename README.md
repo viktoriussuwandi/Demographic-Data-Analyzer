@@ -6,7 +6,8 @@ This is the complete Demographic Data Analyzer project. Instructions for buildin
 https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer
 
 ### Some of additional features :
-    * under development
+    * only use panda library to solve the problem
+    * Add step by step guidance in query and calculation
 
 ### Description :
 In this challenge you must analyze demographic data using Pandas. You are given a dataset of demographic data that was extracted from the 1994 Census database. Here is a sample of what the data looks like:
@@ -44,3 +45,4 @@ We imported the tests from `test_module.py` to main.py for your convenience. The
 Dua, D. and Graff, C. (2019). [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.php). Irvine, CA: University of California, School of Information and Computer Science.
 
 #### Test Result
+![complete](img/complete.jpg)
