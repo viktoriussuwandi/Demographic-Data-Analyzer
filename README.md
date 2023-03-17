@@ -2,7 +2,7 @@
 #### Solution running on : 
 https://replit.com/@ViktoriusSuwand/Demographic-Data-Analyzer
 
-This is the complete Demographic Data Analyzer project. Instructions for building your project can be found at 
+This is the complete Demographic Data Analyzer project. Instructions for building the project can be found at 
 https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer
 
 ### Some of additional features :
