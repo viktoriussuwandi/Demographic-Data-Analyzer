@@ -1,6 +1,5 @@
 # Demographic Data Analyzer
-#### Solution running on : 
-https://replit.com/@ViktoriusSuwand/Demographic-Data-Analyzer
+#### Documentation can be found on : [https://github.com/viktoriussuwandi/Demographic-Data-Analyzer](https://github.com/viktoriussuwandi/Demographic-Data-Analyzer)
 
 This is the complete Demographic Data Analyzer project. Instructions for building the project can be found at 
 https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer
